@@ -21,6 +21,10 @@ DJANGO_SETTINGS_MODULE=<DJANGO_APP>.settings  OTEL_RESOURCE_ATTRIBUTES=service.n
 ```
 *specifying **DJANGO_SETTINGS_MODULE** is necessary for opentelemetry instrumentation to work*
 
+*For this example, sample command would look like*
+```
+DJANGO_SETTINGS_MODULE=mysite.settings  OTEL_RESOURCE_ATTRIBUTES=service.name=MainApp OTEL_EXPORTER_OTLP_ENDPOINT="http://<IP Of SigNoz>:4317" opentelemetry-instrument gunicorn mysite.wsgi -c gunicorn.config.py --workers 2 --threads 2 --reload
+```
 
 # Browsing the app and checking at SigNoz
 1. Visit `http://localhost:8000/admin` and create a question for poll
