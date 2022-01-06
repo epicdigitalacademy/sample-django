@@ -1,3 +1,20 @@
+# Running with SigNoz
+```
+pip3 install -r requirements.txt
+```
+
+```
+opentelemetry-bootstrap --action=install
+```
+
+## To run with gunicorn you need to add post_fork hook
+1. add a file `gunicorn.config.py` as given in this repo
+2. specify that config file when running gunicorn as in below run command
+
+```
+DJANGO_SETTINGS_MODULE=<DJANGO_APP>.settings  OTEL_RESOURCE_ATTRIBUTES=service.name=<serviceName> OTEL_EXPORTER_OTLP_ENDPOINT="http://<IP OF SigNoz>:4317" opentelemetry-instrument gunicorn <DJANGO_APP>.wsgi -c gunicorn.config.py --workers 2 --threads 2 --reload
+```
+
 # Getting Started #
 
 These steps will get this sample Django application running for you using DigitalOcean.
