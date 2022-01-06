@@ -14,6 +14,7 @@ opentelemetry-bootstrap --action=install
 ```
 DJANGO_SETTINGS_MODULE=<DJANGO_APP>.settings  OTEL_RESOURCE_ATTRIBUTES=service.name=<serviceName> OTEL_EXPORTER_OTLP_ENDPOINT="http://<IP OF SigNoz>:4317" opentelemetry-instrument gunicorn <DJANGO_APP>.wsgi -c gunicorn.config.py --workers 2 --threads 2 --reload
 ```
+*specifying **DJANGO_SETTINGS_MODULE** is necessary for opentelemetry instrumentation to work*
 
 # Getting Started #
 
