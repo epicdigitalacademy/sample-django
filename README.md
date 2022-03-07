@@ -32,7 +32,7 @@ docker run --env OTEL_METRICS_EXPORTER=none \
     --env OTEL_EXPORTER_OTLP_ENDPOINT=host.docker.internal:4317 \
     --env DJANGO_SETTINGS_MODULE=mysite.settings \
     -p 8000:8000 \
-    -t signoz/sample-django:latest1 opentelemetry-instrument gunicorn mysite.wsgi -c gunicorn.config.py --workers 2 --threads 2 --reload --bind 0.0.0.0:8000
+    -t signoz/sample-django:latest opentelemetry-instrument gunicorn mysite.wsgi -c gunicorn.config.py --workers 2 --threads 2 --reload --bind 0.0.0.0:8000
 ```
 
 # If want to use docker image of django app in docker-compose
