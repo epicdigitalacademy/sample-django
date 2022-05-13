@@ -1,5 +1,7 @@
 .git
 .env
-__pycache__
 .do
 .pyc
+__pycache__
+staticfiles/
+db.sqlite3
