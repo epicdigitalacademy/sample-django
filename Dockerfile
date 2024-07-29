@@ -22,9 +22,8 @@ ENV DJANGO_SUPERUSER_EMAIL=hello@signoz.io
 
 RUN python manage.py migrate && \
   python manage.py collectstatic --noinput && \
-  python manage.py createsuperuser --no-input && \
-  opentelemetry-bootstrap --action=install
+  python manage.py createsuperuser --no-input
 
-CMD [ "opentelemetry-instrument", "gunicorn", "mysite.wsgi", "-c", "gunicorn.config.py", "--workers", "2", "--threads", "2", "--reload", "--bind", "0.0.0.0:8000" ]
+CMD [ "gunicorn", "mysite.wsgi", "-c", "gunicorn.config.py", "--workers", "2", "--threads", "2", "--reload", "--bind", "0.0.0.0:8000" ]
 
 EXPOSE 8000
